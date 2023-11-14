@@ -11,11 +11,11 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="restaurant_id" Type="int" Nullable="false" />
-          <Property Name="employee_id" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" />
           <Property Name="time" Type="datetime" Nullable="false" />
           <Property Name="maximum_preserve_time" Type="datetime" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="completion_time" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="completion_time" Type="datetime" />
         </EntityType>
         <EntityType Name="collected_food_items">
           <Key>
@@ -27,7 +27,7 @@
           <Property Name="quantity" Type="int" Nullable="false" />
           <Property Name="condition" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="distribution_status" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="distribution_completion_time" Type="datetime" Nullable="false" />
+          <Property Name="distribution_completion_time" Type="datetime" />
         </EntityType>
         <EntityType Name="employees">
           <Key>
@@ -52,7 +52,7 @@
           <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_collect_requests_employees">
-          <End Role="employees" Type="Self.employees" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
           <End Role="collect_requests" Type="Self.collect_requests" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="employees">
@@ -116,11 +116,11 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="restaurant_id" Type="Int32" Nullable="false" />
-          <Property Name="employee_id" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" />
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="maximum_preserve_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="completion_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="completion_time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="employee" Relationship="Self.FK_collect_requests_employees" FromRole="collect_requests" ToRole="employees" />
           <NavigationProperty Name="restaurant" Relationship="Self.FK_collect_requests_restaurants" FromRole="collect_requests" ToRole="restaurants" />
           <NavigationProperty Name="collected_food_items" Relationship="Self.FK_collected_food_items_collect_requests" FromRole="collect_requests" ToRole="collected_food_items" />
@@ -135,7 +135,7 @@
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="distribution_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="distribution_completion_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="distribution_completion_time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="collect_requests" Relationship="Self.FK_collected_food_items_collect_requests" FromRole="collected_food_items" ToRole="collect_requests" />
         </EntityType>
         <EntityType Name="employee">
@@ -163,7 +163,7 @@
           <NavigationProperty Name="collect_requests" Relationship="Self.FK_collect_requests_restaurants" FromRole="restaurants" ToRole="collect_requests" />
         </EntityType>
         <Association Name="FK_collect_requests_employees">
-          <End Role="employees" Type="Self.employee" Multiplicity="1" />
+          <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
           <End Role="collect_requests" Type="Self.collect_requests" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="employees">

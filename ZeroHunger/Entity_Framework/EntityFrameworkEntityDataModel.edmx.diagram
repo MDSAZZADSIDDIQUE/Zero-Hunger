@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a37b27a97a04d5cb954e21fbcdf3d51" Name="Diagram1">
+      <Diagram DiagramId="3bf128d817fb4462b5c0d3455ee66ae8" Name="Diagram1">
         <EntityTypeShape EntityType="ZeroHungerDatabaseModel.collect_requests" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ZeroHungerDatabaseModel.collected_food_items" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ZeroHungerDatabaseModel.employee" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />

@@ -77,3 +77,9 @@ D:\GitHub\Zero-Hunger\ZeroHunger\obj\Debug\ZeroHunger.csproj.CoreCompileInputs.c
 D:\GitHub\Zero-Hunger\ZeroHunger\obj\Debug\ZeroHunger.csproj.CopyComplete
 D:\GitHub\Zero-Hunger\ZeroHunger\obj\Debug\ZeroHunger.dll
 D:\GitHub\Zero-Hunger\ZeroHunger\obj\Debug\ZeroHunger.pdb
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\EntityFramework.dll
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\EntityFramework.SqlServer.dll
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\EntityFramework.xml
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\EntityFramework.SqlServer.xml
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\AutoMapper.dll
+D:\GitHub\Zero-Hunger\ZeroHunger\bin\AutoMapper.xml

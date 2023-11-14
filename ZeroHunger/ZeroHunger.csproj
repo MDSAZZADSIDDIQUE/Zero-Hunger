@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -128,33 +131,42 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmployeeDashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NGODashboardController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\RestaurantDashboardController.cs" />
+    <Compile Include="DTOs\CollectedFoodItemDTO.cs" />
+    <Compile Include="DTOs\CollectRequestDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTO.cs" />
+    <Compile Include="DTOs\RestaurantDTO.cs" />
     <Compile Include="Entity_Framework\collected_food_items.cs">
-      <DependentUpon>ZeroHungerEntityDataModel.tt</DependentUpon>
+      <DependentUpon>EntityFrameworkEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity_Framework\collect_requests.cs">
-      <DependentUpon>ZeroHungerEntityDataModel.tt</DependentUpon>
+      <DependentUpon>EntityFrameworkEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity_Framework\employee.cs">
-      <DependentUpon>ZeroHungerEntityDataModel.tt</DependentUpon>
+      <DependentUpon>EntityFrameworkEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity_Framework\EntityFrameworkEntityDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityFrameworkEntityDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity_Framework\EntityFrameworkEntityDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityFrameworkEntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity_Framework\EntityFrameworkEntityDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityFrameworkEntityDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity_Framework\restaurant.cs">
-      <DependentUpon>ZeroHungerEntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity_Framework\ZeroHungerEntityDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZeroHungerEntityDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity_Framework\ZeroHungerEntityDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZeroHungerEntityDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity_Framework\ZeroHungerEntityDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZeroHungerEntityDataModel.edmx</DependentUpon>
+      <DependentUpon>EntityFrameworkEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +178,7 @@
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
     <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-quartz.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-reboot.rtl.css" />
@@ -178,15 +191,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Entity_Framework\ZeroHungerEntityDataModel.Context.tt">
+    <Content Include="Content\pexels-archie-binamira-754769.jpg" />
+    <Content Include="Content\pexels-hitesh-choudhary-1739842.jpg" />
+    <Content Include="Content\pexels-parij-photography-1427430.jpg" />
+    <Content Include="Content\pexels-pixabay-46259.jpg" />
+    <Content Include="Content\pexels-pixabay-70336.jpg" />
+    <Content Include="Entity_Framework\EntityFrameworkEntityDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ZeroHungerEntityDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>ZeroHungerEntityDataModel.edmx</DependentUpon>
+      <DependentUpon>EntityFrameworkEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>EntityFrameworkEntityDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity_Framework\ZeroHungerEntityDataModel.tt">
+    <Content Include="Entity_Framework\EntityFrameworkEntityDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZeroHungerEntityDataModel.edmx</DependentUpon>
-      <LastGenOutput>ZeroHungerEntityDataModel.cs</LastGenOutput>
+      <DependentUpon>EntityFrameworkEntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>EntityFrameworkEntityDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -197,12 +215,12 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Entity_Framework\ZeroHungerEntityDataModel.edmx">
+    <EntityDeploy Include="Entity_Framework\EntityFrameworkEntityDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ZeroHungerEntityDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityFrameworkEntityDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Entity_Framework\ZeroHungerEntityDataModel.edmx.diagram">
-      <DependentUpon>ZeroHungerEntityDataModel.edmx</DependentUpon>
+    <Content Include="Entity_Framework\EntityFrameworkEntityDataModel.edmx.diagram">
+      <DependentUpon>EntityFrameworkEntityDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -229,6 +247,28 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\GetStarted.cshtml" />
+    <Content Include="Views\Registration\RestaurantRegistration.cshtml" />
+    <Content Include="Views\Login\RestaurantLogin.cshtml" />
+    <Content Include="Views\NGODashboard\Index.cshtml" />
+    <Content Include="Views\RestaurantDashboard\Index.cshtml" />
+    <Content Include="Views\RestaurantDashboard\CreateCollectRequest.cshtml" />
+    <Content Include="Views\RestaurantDashboard\CollectedFoodItemsList.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Shared\_DashboardNavbar.cshtml" />
+    <Content Include="Views\RestaurantDashboard\CollectRequestList.cshtml" />
+    <Content Include="Views\NGODashboard\CollectRequestList.cshtml" />
+    <Content Include="Views\NGODashboard\RestaurantList.cshtml" />
+    <Content Include="Views\NGODashboard\EmployeeList.cshtml" />
+    <Content Include="Views\NGODashboard\CollectedFoodItemsList.cshtml" />
+    <Content Include="Views\Login\NGOLogin.cshtml" />
+    <Content Include="Views\Registration\EmployeeRegistration.cshtml" />
+    <Content Include="Views\EmployeeDashboard\Index.cshtml" />
+    <Content Include="Views\NGODashboard\AssignEmployee.cshtml" />
+    <Content Include="Views\EmployeeDashboard\AssignedCollectRequests.cshtml" />
+    <Content Include="Views\Login\EmployeeLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
